@@ -1,4 +1,5 @@
-const ratingFiles = [1, 2, 3, 4, 5];
+// Display highest rated games first
+const ratingFiles = [5, 4, 3, 2, 1];
 const koopaImg = 'https://cdn.discordapp.com/emojis/964397863910117396.webp?size=44';
 
 async function loadCSV(file, rating) {
