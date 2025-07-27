@@ -47,6 +47,8 @@ function render(games) {
     for (let i = 0; i < game.rating; i++) {
       const img = document.createElement('img');
       img.src = koopaImg;
+      img.alt = 'Koopa';
+      img.loading = 'lazy';
       koopa.appendChild(img);
     }
 
