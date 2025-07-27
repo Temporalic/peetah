@@ -13,6 +13,41 @@ h1 {
 }
 
 .gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#search {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+}
+
+.section-header {
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.section-header .arrow {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.section.collapsed .cards {
+  display: none;
+}
+
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
