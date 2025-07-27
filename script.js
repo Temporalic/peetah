@@ -4,11 +4,15 @@ const koopaImg = 'https://cdn.discordapp.com/emojis/964397863910117396.webp?size
 async function loadCSV(file, rating) {
   const res = await fetch(file);
   const text = await res.text();
-  const rows = text.trim().split('\n').slice(1);
-  return rows.map(row => {
-    const [name, image_url, comment] = row.split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/).map(x => x.replace(/^\"|\"$/g, '').trim());
-    return { name, image_url, comment, rating };
-  });
+  const rows = text.trim().split(/\r?\n/).slice(1);
+  return rows
+    .filter(r => r.trim())
+    .map(row => {
+      const [name, image_url, comment] = row
+        .split(/,(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/)
+        .map(x => x.replace(/^\"|\"$/g, '').trim());
+      return { name, image_url, comment, rating };
+    });
 }
 
 async function init() {
